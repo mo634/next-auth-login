@@ -2,8 +2,8 @@
 import {useState} from "react";
 import "./style.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import {signIn} from 'next-auth/react';
+import {useRouter} from "next/navigation";
+import {signIn} from "next-auth/react";
 const Login = () => {
     //state
     const [email, setEmail] = useState("");
@@ -13,9 +13,9 @@ const Login = () => {
     const router = useRouter();
 
     //func
-    const hanldeSubmit =async (e) => {
+    const hanldeSubmit = async (e) => {
         e.preventDefault();
-        
+
         setIsLoading(true);
         //check all field filled
         if (!email || !password) {
@@ -26,26 +26,23 @@ const Login = () => {
             setError("");
         }
 
-        //verify singin info 
+        //verify singin info
         try {
             const res = await signIn("credentials", {
                 email,
                 password,
-                callbackUrl: `${window.location.origin}/`,
                 redirect:false,
-            },
-            )
+            });
 
             if (res.error) {
-                setError("Invalid Data ")
+                setError("Invalid Data ");
                 return;
             }
 
-            router.replace("dashboard")
-            
-        }
-        catch (error) {
-            console.log(error)
+            router.replace("dashboard");
+        } catch (error) {
+            setError("Invalid Data ");
+            console.log(error);
         } finally {
             setIsLoading(false);
         }
@@ -54,14 +51,24 @@ const Login = () => {
         <main className="main ">
             <div className="login-wrapper">
                 {/* header  */}
-                <h1 className="  font-bold text-4xl ">Enter Your Details</h1>
+                <h1 className="  font-bold text-4xl ">Enter Your Own Details</h1>
 
                 {/* form */}
                 <form onSubmit={hanldeSubmit} className="flex flex-col gap-3">
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter Email" />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter password" />
+                    <input
+                        defaultValue={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        placeholder="Enter Email"
+                    />
+                    <input
+                        defaultValue={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        type="password"
+                        placeholder="Enter password"
+                    />
                     {/* register btn or loading sniper */}
-                    {isLoading ?<span className="loader"></span> : <button className="main_btn">Login</button>}
+                    {isLoading ? <span className="loader"></span> : <button className="main_btn">Login</button>}
                 </form>
 
                 {/* err mesg */}
