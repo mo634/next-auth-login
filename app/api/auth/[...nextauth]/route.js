@@ -11,6 +11,7 @@ export const authConfig = {
     //place to put the log in info 
     providers: [
         CredentialsProvider({
+            id: 'credentials',
             //we need this name when use sinin func
             name: "credentials",
             credentials: {},

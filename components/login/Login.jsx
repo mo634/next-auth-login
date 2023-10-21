@@ -31,8 +31,10 @@ const Login = () => {
             const res = await signIn("credentials", {
                 email,
                 password,
+                callbackUrl: `${window.location.origin}/`,
                 redirect:false,
-            })
+            },
+            )
 
             if (res.error) {
                 setError("Invalid Data ")
@@ -52,7 +54,7 @@ const Login = () => {
         <main className="main ">
             <div className="login-wrapper">
                 {/* header  */}
-                <h1 className="  font-bold text-4xl ">Enter Details</h1>
+                <h1 className="  font-bold text-4xl ">Enter Your Details</h1>
 
                 {/* form */}
                 <form onSubmit={hanldeSubmit} className="flex flex-col gap-3">
