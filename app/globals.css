@@ -9,9 +9,9 @@ body {
 	@apply  grid h-screen place-items-center 
 }
 
-.main_btn{
+/* .main_btn{
 	@apply bg-[#0079ff] text-white p-3 rounded-md hover:opacity-[0.7] duration-300
-}
+} */
 
 
 /* loader style */

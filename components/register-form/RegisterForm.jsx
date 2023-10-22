@@ -3,7 +3,7 @@
 import Link from "next/link";
 import "../login/style.css";
 import {useState} from "react";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 const RegisterForm = () => {
     // state
     const [name, setName] = useState("");
@@ -11,7 +11,7 @@ const RegisterForm = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const router=useRouter()
+    const router = useRouter();
     //func
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -70,7 +70,7 @@ const RegisterForm = () => {
 
                 const form = e.target;
                 form.reset();
-                router.push("/")
+                router.push("/");
             } else {
                 console.log("error while sending info");
             }
@@ -94,7 +94,14 @@ const RegisterForm = () => {
                     <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter Email" />
                     <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter password" />
                     {/* register btn or loading sniper */}
-                    {isLoading ?<span className="loader"></span> : <button className="main_btn">Register</button>}
+                    {isLoading ? (
+                        <span className="loader"></span>
+                    ) : (
+                        <a href="#" className="a-liquid">
+                            <button>Register</button>
+                            <div className="liquid"></div>
+                        </a>
+                    )}
                 </form>
 
                 {/* err mesg */}

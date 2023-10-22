@@ -2,9 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-wrapper{
-    @apply  bg-zinc-300/10 rounded-lg border-t-4 border-[#333] flex flex-col gap-3 shadow-lg p-[3%] w-[50%]
+.login-wrapper {
+	@apply bg-zinc-300/10 rounded-lg border-t-4 border-[#333] flex flex-col gap-3 shadow-lg p-[3%] w-[50%]
 }
-input{
-    @apply p-3 border-b-gray-500 border focus:outline-none
+
+input {
+	@apply p-3 border-b-gray-500 border focus:outline-none focus:placeholder:text-transparent focus:placeholder:duration-[0.5s]
+}
+
+/*  btn style  */
+.a-liquid {
+    margin: auto;
+	width: 100%;
+	position: relative;
+	padding: 20px 50px;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	border-radius: 40px;
+}
+.a-liquid button {
+	width: 100%;
+	position: relative;
+	color: #fff;
+	font-size: 20px;
+	font-family: Arial;
+	letter-spacing: 3px;
+	z-index: 1;
+}
+
+
+.a-liquid .liquid {
+	width: 100%;
+	position: absolute;
+	top: -80px;
+	left: 0;
+	height: 200px;
+	background: #4973ff;
+	box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+	transition: .5s;
+}
+.a-liquid .liquid:hover{
+    opacity: 0.7;;
 }

@@ -68,7 +68,12 @@ const Login = () => {
                         placeholder="Enter password"
                     />
                     {/* register btn or loading sniper */}
-                    {isLoading ? <span className="loader"></span> : <button className="main_btn">Login</button>}
+                    {isLoading ? <span className="loader"></span> :
+                        <a href="#" className="a-liquid">
+                        <button>Login</button>
+                        <div className="liquid"></div>
+                        </a>
+                    }
                 </form>
 
                 {/* err mesg */}
