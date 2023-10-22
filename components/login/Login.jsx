@@ -51,7 +51,7 @@ const Login = () => {
         <main className="main ">
             <div className="login-wrapper">
                 {/* header  */}
-                <h1 className="  font-bold text-4xl ">Enter Your Own Details</h1>
+                <h1 className="  font-bold text-4xl ">Enter The Details</h1>
 
                 {/* form */}
                 <form onSubmit={hanldeSubmit} className="flex flex-col gap-3">
